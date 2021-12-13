@@ -1,0 +1,30 @@
+{
+  "name": "@zilliqa-js/scilla-json-utils",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --collect-coverage",
+    "release": "npm test && npm run build && npm publish --access=public"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "jest": "^27.4.3",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.1.1",
+    "typescript": "^4.5.2"
+  },
+  "type": "module",
+  "main": "src/index.js",
+  "files": [
+    "node_modules",
+    "package.json",
+    "src/index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "jest": {
+    "preset": "ts-jest",
+    "verbose": true
+  },
+  "license": "GPL-3.0"
+}
