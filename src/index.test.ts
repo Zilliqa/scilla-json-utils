@@ -48,6 +48,16 @@ describe("getJSONValue", () => {
     },
     {
       type: "Uint256",
+      value: "1",
+      want: "1",
+    },
+    {
+      type: "Int256",
+      value: "-1",
+      want: "-1",
+    },
+    {
+      type: "Uint256",
       value: 1,
       want: "1",
     },
