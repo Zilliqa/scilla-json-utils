@@ -150,6 +150,11 @@ describe("getJSONValue", () => {
         constructor: "Pair",
       },
     },
+    {
+      type: "undefined",
+      value: undefined,
+      want: undefined,
+    },
   ];
 
   for (const testCase of testCases) {
