@@ -5,6 +5,9 @@
     <a href="https://app.travis-ci.com/Zilliqa/scilla-json-utils" target="_blank">
     <img src="https://app.travis-ci.com/Zilliqa/scilla-json-utils.svg?token=6BrmjBEqdaGp73khUJCz&branch=main" />
     </a>
+    <a href="https://codecov.io/gh/Zilliqa/scilla-json-utils" target="_blank">
+    <img src="https://codecov.io/gh/Zilliqa/scilla-json-utils/branch/main/graph/badge.svg?token=YlzpRvkgub" />
+    </a>
     <a href="https://github.com/zilliqa/dev-wallet/blob/master/LICENSE" target="_blank">
     <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
     </a>
