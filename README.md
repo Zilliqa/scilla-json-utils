@@ -1,4 +1,7 @@
 <div>
+    <a href="https://www.npmjs.com/package/@zilliqa-js/scilla-json-utils" target="_blank">
+    <img src="https://img.shields.io/npm/v/@zilliqa-js/scilla-json-utils" />
+    </a>
     <a href="https://app.travis-ci.com/Zilliqa/scilla-json-utils" target="_blank">
     <img src="https://app.travis-ci.com/Zilliqa/scilla-json-utils.svg?token=6BrmjBEqdaGp73khUJCz&branch=main" />
     </a>
