@@ -77,6 +77,16 @@ describe("getJSONValue", () => {
       want: "0x0000000000000000000000000000000000000abc",
     },
     {
+      type: "BNum",
+      value: "1",
+      want: "1",
+    },
+    {
+      type: "BNum",
+      value: 1,
+      want: "1",
+    },
+    {
       type: "Bool",
       value: false,
       want: { argtypes: [], arguments: [], constructor: "False" },
