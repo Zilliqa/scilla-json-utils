@@ -259,6 +259,54 @@ describe("getJSONParams", () => {
         },
       ],
     },
+    {
+      param: {
+        x: [
+          "0x85E0bef5F9a11821f9B2BA778a05963436B5e720.Foo.Bar.of.ByStr20.BNum",
+          ["0x0000000000000000000000000000000000000000", 1],
+        ],
+        y: [
+          "List (Pair (ByStr20) (String))",
+          [
+            ["0x85E0bef5F9a11821f9B2BA778a05963436B5e720", "Foo"],
+            ["0x85E0bef5F9a11821f9B2BA778a05963436B5e720", "Bar"],
+          ],
+        ],
+        z: ["Uint256", 1],
+      },
+      want: [
+        {
+          type: "0x85e0bef5f9a11821f9b2ba778a05963436b5e720.Foo",
+          value: {
+            argtypes: [],
+            arguments: ["0x0000000000000000000000000000000000000000", "1"],
+            constructor: "0x85e0bef5f9a11821f9b2ba778a05963436b5e720.Bar",
+          },
+          vname: "x",
+        },
+        {
+          type: "List (Pair (ByStr20) (String))",
+          value: [
+            {
+              argtypes: ["ByStr20", "String"],
+              arguments: ["0x85e0bef5f9a11821f9b2ba778a05963436b5e720", "Foo"],
+              constructor: "Pair",
+            },
+            {
+              argtypes: ["ByStr20", "String"],
+              arguments: ["0x85e0bef5f9a11821f9b2ba778a05963436b5e720", "Bar"],
+              constructor: "Pair",
+            },
+          ],
+          vname: "y",
+        },
+        {
+          type: "Uint256",
+          value: "1",
+          vname: "z",
+        },
+      ],
+    },
   ];
 
   for (const testCase of testCases) {
