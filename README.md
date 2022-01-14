@@ -37,6 +37,8 @@ yarn add @zilliqa-js/scilla-json-utils
 #### Integers (`UintX` / `IntX`)
 
 ```js
+import { getJSONValue } from "@zilliqa-js/scilla-json-utils";
+
 getJSONValue("Uint256", "1");
 // Output: "1"
 ```
@@ -212,6 +214,8 @@ type Foo =
 ```
 
 ```js
+import { getJSONParams } from "@zilliqa-js/scilla-json-utils";
+
 getJSONParams({
   x: [
     "0x85E0bef5F9a11821f9B2BA778a05963436B5e720.Foo.Bar.of.ByStr20.BNum",
