@@ -15,6 +15,7 @@
   },
   "type": "module",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "files": [
     "node_modules",
     "package.json",
