@@ -32,43 +32,43 @@ yarn add @zilliqa-js/scilla-json-utils
 
 ## Usage
 
-### I. `getJSONValue(type: string, value: any)`
+### I. `scillaJSONVal(type: string, value: any)`
 
 #### Integers (`UintX` / `IntX`)
 
 ```js
-import { getJSONValue } from "@zilliqa-js/scilla-json-utils";
+import { scillaJSONVal } from "@zilliqa-js/scilla-json-utils";
 
-getJSONValue("Uint256", "1");
+scillaJSONVal("Uint256", "1");
 // Output: "1"
 ```
 
 ```js
-getJSONValue("Int256", "-1");
+scillaJSONVal("Int256", "-1");
 // Output: "-1"
 ```
 
 ```js
-getJSONValue("Uint256", 1);
+scillaJSONVal("Uint256", 1);
 // Output: "1"
 ```
 
 ```js
-getJSONValue("Int256", -1);
+scillaJSONVal("Int256", -1);
 // Output: "-1"
 ```
 
 #### Strings (`String`)
 
 ```js
-getJSONValue("String", "Foo");
+scillaJSONVal("String", "Foo");
 // Output: "Foo"
 ```
 
 #### Byte Strings (`ByStrX`)
 
 ```js
-getJSONValue("ByStr20", "0x85E0bef5F9a11821f9B2BA778a05963436B5e720");
+scillaJSONVal("ByStr20", "0x85E0bef5F9a11821f9B2BA778a05963436B5e720");
 // Output: "0x85e0bef5f9a11821f9b2ba778a05963436b5e720"
 // Note that the output is lowercased.
 ```
@@ -76,19 +76,19 @@ getJSONValue("ByStr20", "0x85E0bef5F9a11821f9B2BA778a05963436B5e720");
 #### Block Numbers (`BNum`)
 
 ```js
-getJSONValue("BNum", "1");
+scillaJSONVal("BNum", "1");
 // Output: "1"
 ```
 
 ```js
-getJSONValue("BNum", 1);
+scillaJSONVal("BNum", 1);
 // Output: "1"
 ```
 
 #### Boolean (`Bool`)
 
 ```js
-getJSONValue("Bool", false);
+scillaJSONVal("Bool", false);
 ```
 
 Output:
@@ -106,7 +106,7 @@ Output:
 ##### None
 
 ```js
-getJSONValue("Option (ByStr20)", undefined);
+scillaJSONVal("Option (ByStr20)", undefined);
 ```
 
 Output:
@@ -122,7 +122,7 @@ Output:
 ##### Some
 
 ```js
-getJSONValue("Option (ByStr20)", "0x0000000000000000000000000000000000000000");
+scillaJSONVal("Option (ByStr20)", "0x0000000000000000000000000000000000000000");
 ```
 
 Output:
@@ -138,7 +138,7 @@ Output:
 #### Pair (`Pair`)
 
 ```js
-getJSONValue("Pair (ByStr20) (Uint256)", [
+scillaJSONVal("Pair (ByStr20) (Uint256)", [
   "0x0000000000000000000000000000000000000000",
   1,
 ]);
@@ -157,7 +157,7 @@ Output:
 #### List (`List`)
 
 ```js
-getJSONValue("List (Pair (ByStr20) (Uint256))", [
+scillaJSONVal("List (Pair (ByStr20) (Uint256))", [
   ["0x85E0bef5F9a11821f9B2BA778a05963436B5e720", 1],
   ["0x85E0bef5F9a11821f9B2BA778a05963436B5e720", 2],
 ]);
@@ -189,7 +189,7 @@ type Foo =
 ```
 
 ```js
-getJSONValue(
+scillaJSONVal(
   "0x85E0bef5F9a11821f9B2BA778a05963436B5e720.Foo.Bar.of.ByStr20.BNum",
   ["0x0000000000000000000000000000000000000000", 1]
 );
@@ -205,7 +205,7 @@ Output:
 }
 ```
 
-### II. `getJSONParams({[vname: string]: [type: string, value: any]})`
+### II. `scillaJSONParams({[vname: string]: [type: string, value: any]})`
 
 ```ocaml
 type Foo =
@@ -214,9 +214,9 @@ type Foo =
 ```
 
 ```js
-import { getJSONParams } from "@zilliqa-js/scilla-json-utils";
+import { scillaJSONParams } from "@zilliqa-js/scilla-json-utils";
 
-getJSONParams({
+scillaJSONParams({
   x: [
     "0x85E0bef5F9a11821f9B2BA778a05963436B5e720.Foo.Bar.of.ByStr20.BNum",
     ["0x0000000000000000000000000000000000000000", 1],
