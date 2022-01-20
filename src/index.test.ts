@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { scillaJSONVal, scillaJSONParams, extractTypes } from ".";
+import { scillaJSONVal, scillaJSONParams, extractTypes } from "./index";
 
 describe("scillaJSONVal", () => {
   const testCases = [
