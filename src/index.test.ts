@@ -15,9 +15,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { getJSONValue, getJSONParams, extractTypes } from ".";
+import { scillaJSONVal, scillaJSONParams, extractTypes } from ".";
 
-describe("getJSONValue", () => {
+describe("scillaJSONVal", () => {
   const testCases = [
     {
       type: "0x85E0bef5F9a11821f9B2BA778a05963436B5e720.Foo.Bar",
@@ -180,13 +180,13 @@ describe("getJSONValue", () => {
   for (const testCase of testCases) {
     const { value, type, want } = testCase;
     it(type, () => {
-      const res = getJSONValue(value, type);
+      const res = scillaJSONVal(type, value);
       expect(JSON.stringify(res)).toBe(JSON.stringify(want));
     });
   }
 });
 
-describe("getJSONParams", () => {
+describe("scillaJSONParams", () => {
   const testCases = [
     // 0xf59c79db958bafdf9d81df29d50edcc14911d40c.Foo.Bar.of.ByStr20.BNum
     {
@@ -312,7 +312,7 @@ describe("getJSONParams", () => {
   for (const testCase of testCases) {
     const { param, want } = testCase;
     it(JSON.stringify(param), () => {
-      const res = getJSONParams(param);
+      const res = scillaJSONParams(param);
       expect(JSON.stringify(res)).toBe(JSON.stringify(want));
     });
   }

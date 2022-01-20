@@ -41,7 +41,7 @@ export const extractTypes = (type: string) => {
   return result;
 };
 
-export const getJSONValue = (value: any, type?: string): any => {
+export const scillaJSONVal = (type: string, value: any): any => {
   // User-defined ADT
   if (typeof type === "string" && type.startsWith("0x")) {
     const arr = type.split(".");
@@ -52,7 +52,7 @@ export const getJSONValue = (value: any, type?: string): any => {
     let values = [] as any[];
     if (structIndex !== -1) {
       const structTypes = arr.slice(structIndex + 1);
-      values = structTypes.map((t, i) => getJSONValue(value[i], t));
+      values = structTypes.map((t, i) => scillaJSONVal(t, value[i]));
     }
     return {
       argtypes: [],
@@ -97,7 +97,7 @@ export const getJSONValue = (value: any, type?: string): any => {
     const types = extractTypes(type);
     return {
       argtypes: types,
-      arguments: value === undefined ? [] : [getJSONValue(value, types[0])],
+      arguments: value === undefined ? [] : [scillaJSONVal(types[0], value)],
       constructor: value === undefined ? "None" : "Some",
     };
   }
@@ -107,7 +107,7 @@ export const getJSONValue = (value: any, type?: string): any => {
     type.startsWith("List") &&
     Array.isArray(value)
   ) {
-    return value.map((x) => getJSONValue(x, extractTypes(type)[0]));
+    return value.map((x) => scillaJSONVal(extractTypes(type)[0], x));
   }
 
   if (
@@ -118,7 +118,7 @@ export const getJSONValue = (value: any, type?: string): any => {
     const types = extractTypes(type);
     return {
       argtypes: types,
-      arguments: value.map((x, i) => getJSONValue(x, types[i])),
+      arguments: value.map((x, i) => scillaJSONVal(types[i], x)),
       constructor: "Pair",
     };
   }
@@ -126,7 +126,7 @@ export const getJSONValue = (value: any, type?: string): any => {
   return value;
 };
 
-export const getJSONParams = (obj: { [x: string]: any }) => {
+export const scillaJSONParams = (obj: { [x: string]: any }) => {
   const result = Object.keys(obj).map((vname) => {
     const [type, value] = obj[vname];
 
@@ -136,14 +136,14 @@ export const getJSONParams = (obj: { [x: string]: any }) => {
       const typeName = arr[1];
       return {
         type: `${contractAddress}.${typeName}`,
-        value: getJSONValue(value, type),
+        value: scillaJSONVal(type, value),
         vname,
       };
     }
 
     return {
       type,
-      value: getJSONValue(value, type),
+      value: scillaJSONVal(type, value),
       vname,
     };
   });
