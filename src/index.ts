@@ -46,7 +46,7 @@ export const scillaJSONVal = (type: string, value: any): any => {
   if (typeof type === "string" && type.startsWith("0x")) {
     const arr = type.split(".");
     const contractAddress = arr[0]?.toLowerCase();
-    const contructorName = arr[2];
+    const constructorName = arr[2];
 
     const structIndex = arr.findIndex((x) => x === "of");
     let values = [] as any[];
@@ -57,7 +57,7 @@ export const scillaJSONVal = (type: string, value: any): any => {
     return {
       argtypes: [],
       arguments: values,
-      constructor: `${contractAddress}.${contructorName}`,
+      constructor: `${contractAddress}.${constructorName}`,
     };
   }
 
