@@ -4,7 +4,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.json",
     "test": "npm run build && jest --collect-coverage",
-    "release": "npm test && npm run build && npm publish --access=public"
+    "release": "npm test && npm run build && npm publish --access=public",
+    "format": "npx prettier --write ."
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
