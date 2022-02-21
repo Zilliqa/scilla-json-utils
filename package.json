@@ -1,6 +1,11 @@
 {
   "name": "@zilliqa-js/scilla-json-utils",
   "version": "0.2.0",
+  "keywords": [
+    "zilliqa",
+    "scilla",
+    "json"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.json",
     "test": "npm run build && jest --collect-coverage",
